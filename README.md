@@ -22,7 +22,7 @@ With chromedriver installed at:
 
 > `/usr/local/bin/chromedriver`
 
-The web application is designed to run a headless chrome window to then scrape data from various URLs. This data is then saved into MongoDB, and displayed via a Bootstrap and Jinja template served by a Flask web app.
+The web application is designed to run a headless chrome window to then scrape data from various URLs. This data is then saved into MongoDB, and displayed via a Bootstrap and Jinja template served by a Flask web app. The mongo database in which the json blobs are stored, is designed to have its data dropped each time the flask application is ran. This is by design in order to simulate an unsuccessful retreival of scraped data.
 
 ## With no data scraped
 ![No Data Image](./noDataImage.png)
