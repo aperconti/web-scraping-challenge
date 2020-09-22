@@ -13,6 +13,9 @@ urls = [
     'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
 ]
 
+executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+browser = Browser('chrome', **executable_path, headless=True)
+
 
 def append_to_final_list(title, img_url, hemisphere_image_urls=[]):
     hemisphere_image_urls.append({"title": title, "img_url": img_url})
@@ -35,11 +38,6 @@ def mars_news():
 
 
 def mars_featured_image():
-    # URL of page to be scraped
-    domain = "https://www.jpl.nasa.gov"
-    url = f'{domain}/spaceimages/?search=&category=Mars'
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=True)
     match_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(match_url)
     browser.links.find_by_partial_text("FULL IMAGE").click()
@@ -65,8 +63,6 @@ def mars_fact_table():
 
 
 def schiaparelli_hemisphere():
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=True)
     match_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(match_url)
     browser.links.find_by_partial_text(
@@ -86,8 +82,6 @@ def schiaparelli_hemisphere():
 
 
 def cerberus_hemisphere():
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=True)
     match_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(match_url)
     browser.links.find_by_partial_text(
@@ -107,8 +101,6 @@ def cerberus_hemisphere():
 
 
 def syrtism_major_hemisphere():
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=True)
     match_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(match_url)
     browser.links.find_by_partial_text(
@@ -128,8 +120,6 @@ def syrtism_major_hemisphere():
 
 
 def valles_marineris_hemisphere():
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=True)
     match_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(match_url)
     browser.links.find_by_partial_text(
@@ -179,6 +169,3 @@ def scrape():
         {"title": valles_title, "img_url": valles_image_url})
 
     return data
-
-
-# print(scrape())
